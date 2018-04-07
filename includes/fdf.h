@@ -6,7 +6,7 @@
 /*   By: jbrown <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/05 14:46:07 by jbrown            #+#    #+#             */
-/*   Updated: 2018/03/10 18:59:53 by jbrown           ###   ########.fr       */
+/*   Updated: 2018/04/05 10:33:47 by jbrown           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,36 +79,36 @@ typedef struct	s_env
 	int		color4;
 }				t_env;
 
-void	usage_msg(void);
-void	error_msg(void);
-void	map_error_msg(void);
+void			usage_msg(void);
+void			error_msg(void);
+void			map_error_msg(void);
 
-void	read_file(t_env *env, char *file);
+void			read_file(t_env *env, char *file);
 
-void	image_pixel_put(t_env *env, float x, float y, int color);
-t_image	*image_init(t_env *env);
+void			image_pixel_put(t_env *env, float x, float y, int color);
+t_image			*image_init(t_env *env);
 
-void	set_vert(t_vert *vert, float x, float y, float z);
+void			set_vert(t_vert *vert, float x, float y, float z);
 
-t_map	*map_init(int width);
-void	center_map(t_map *map);
+t_map			*map_init(int width);
+void			center_map(t_map *map);
 
-void	change_color_scheme(t_env *env);
-int		line_color(t_env *env, t_vert *vert1, t_vert *vert2);
+void			change_color_scheme(t_env *env);
+int				line_color(t_env *env, t_vert *vert1, t_vert *vert2);
 
-void	render(t_env *env);
+void			render(t_env *env);
 
-void	mat_copy(float source[4][4], float dest[4][4]);
-void	mat_mult_vec(t_vert *source, float mat[4][4], t_vert *dest);
-void	mat_mult(float mat1[4][4], float mat2[4][4], float dest[4][4]);
-void	init_mat_ident(float mat[4][4]);
+void			mat_copy(float source[4][4], float dest[4][4]);
+void			mat_mult_vec(t_vert *source, float mat[4][4], t_vert *dest);
+void			mat_mult(float mat1[4][4], float mat2[4][4], float dest[4][4]);
+void			init_mat_ident(float mat[4][4]);
 
-void	mat_translate(float mat[4][4], float tx, float ty, float tz);
-void	mat_scale(float mat[4][4], float sx, float sy, float sz);
-void	mat_rotate(float mat[4][4], float ax, float ay, float az);
+void			mat_translate(float mat[4][4], float tx, float ty, float tz);
+void			mat_scale(float mat[4][4], float sx, float sy, float sz);
+void			mat_rotate(float mat[4][4], float ax, float ay, float az);
 
-int		on_key_press(int key, t_env *env);
-int		on_key_up(int key, t_env *env);
-void	scale_all(float scale, t_env *env);
+int				on_key_press(int key, t_env *env);
+int				on_key_up(int key, t_env *env);
+void			scale_all(float scale, t_env *env);
 
 #endif

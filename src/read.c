@@ -6,7 +6,7 @@
 /*   By: jbrown <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/07 21:37:22 by jbrown            #+#    #+#             */
-/*   Updated: 2018/03/10 19:01:06 by jbrown           ###   ########.fr       */
+/*   Updated: 2018/04/05 10:50:19 by jbrown           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,14 @@ static t_list	*read_line(t_env *env, char *str, int width, int y)
 	return (lst);
 }
 
+static void		finish_read(t_env *e, int fd)
+{
+	if (close(fd) == -1)
+		error_msg();
+	center_map(e->map);
+	e->map->new_rows = ft_lstdup(e->map->rows);
+}
+
 void			read_file(t_env *e, char *file)
 {
 	int		fd;
@@ -59,9 +67,8 @@ void			read_file(t_env *e, char *file)
 			free(str);
 		}
 	}
-	free(str);
-	if (close(fd) == -1)
+	else
 		error_msg();
-	center_map(e->map);
-	e->map->new_rows = ft_lstdup(e->map->rows);
+	free(str);
+	finish_read(e, fd);
 }

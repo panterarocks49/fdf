@@ -6,7 +6,7 @@
 /*   By: jbrown <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/09 19:40:01 by jbrown            #+#    #+#             */
-/*   Updated: 2018/03/10 18:53:56 by jbrown           ###   ########.fr       */
+/*   Updated: 2018/04/05 10:52:06 by jbrown           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	usage_msg(void)
 
 void	error_msg(void)
 {
-	perror("error: ");
+	perror("error");
 	exit(1);
 }
 
